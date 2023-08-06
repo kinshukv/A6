@@ -1,0 +1,48 @@
+<div class="row">
+    <main class="col-md-12">
+
+        <!-- Start your code here -->
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Display error message if there is one -->
+                            {{#if errorMsg}}
+                                <div class="alert alert-danger" role="alert">
+                                    {{errorMsg}}
+                                </div>
+                            {{else}}
+                                <!-- Check if the user is logged in -->
+                                {{#if isLoggedIn}}
+                                    <!-- Display welcome message and logout button -->
+                                    <h3 class="card-title">Welcome, {{username}}!</h3>
+                                    <a href="/logout" class="btn btn-danger btn-block">Logout</a>
+                                {{else}}
+                                    <br>
+                                    <!-- Inform the user to login -->
+                                    <p>Login first to use the features</p>
+                                    <h3 class="card-title">Please login below</h3>
+                                    <!-- Login form -->
+                                    <form method="post" action="/login">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" id="username" name="username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                    </form>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End your code here -->
+
+    </main>
+</div>
